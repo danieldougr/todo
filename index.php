@@ -1,3 +1,6 @@
+<?php
+    require('./functions.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,6 +35,23 @@
             </form>
             <table>
                 <tbody>
+                    <?php foreach ($tasks as $task) : ?>
+                        <tr>
+                            <td width="2.2rem">
+                                <a href="" class="link-not-done">
+                                    <span class="material-icons-outlined">check_box_outline_blank</span>
+                                </a>
+                            </td>
+                            <td class="td-not-done">
+                                <?php echo $task?>
+                            </td>
+                            <td width="2.2rem">
+                                <a href="" class="link-trash">
+                                    <span class="material-icons-outlined">delete</span>
+                                </a>
+                        </td>
+                    </tr>
+                    <?php endforeach ?>
                     <tr>
                         <td width="2.2rem">
                             <a href="" class="link-done">
