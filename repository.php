@@ -24,7 +24,7 @@ function dbInclude($task) {
     $file = fopen(DB_FILE, 'a');
 
     if($file) {
-        fwrite($file, "\n" .$task);
+        fwrite($file, "\n".$task);
 
         fclose($file);
     }

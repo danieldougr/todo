@@ -22,7 +22,7 @@
     </header>
     <div class="page-content">
         <div class="page-content-container">
-            <form action="" method="POST">
+            <form action="index.php?action=create" method="POST">
                 <div class="input-container">
                     <input 
                         type="text" 
