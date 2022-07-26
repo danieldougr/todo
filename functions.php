@@ -18,7 +18,10 @@ function createTask() {
     
     if(isset($_POST['task'])) {
         if(strlen(trim($_POST['task'])) > 0) {
-            dbInclude(trim($_POST['task']));
+            $task['done'] = false;
+            $task['text'] = trim($_POST['task']);
+            
+            dbInclude($task);
         }
     }
 

@@ -43,7 +43,7 @@
                                 </a>
                             </td>
                             <td class="td-not-done">
-                                <?php echo $task?>
+                                <?php echo $task->text?>
                             </td>
                             <td width="2.2rem">
                                 <a href="index.php?action=delete&id=<?php echo $id?>" class="link-trash">
