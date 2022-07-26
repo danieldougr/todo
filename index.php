@@ -35,7 +35,7 @@
             </form>
             <table>
                 <tbody>
-                    <?php foreach ($tasks as $task) : ?>
+                    <?php foreach ($tasks as $id => $task) : ?>
                         <tr>
                             <td width="2.2rem">
                                 <a href="" class="link-not-done">
@@ -46,7 +46,7 @@
                                 <?php echo $task?>
                             </td>
                             <td width="2.2rem">
-                                <a href="" class="link-trash">
+                                <a href="index.php?action=delete&id=<?php echo $id?>" class="link-trash">
                                     <span class="material-icons-outlined">delete</span>
                                 </a>
                         </td>

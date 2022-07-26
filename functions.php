@@ -17,7 +17,7 @@ if(isset($_GET['action'])) {
 function createTask() {
     
     if(isset($_POST['task'])) {
-        if(strlen[trim($_POST['task'])] > 0) {
+        if(strlen(trim($_POST['task'])) > 0) {
             dbInclude(trim($_POST['task']));
         }
     }
@@ -26,7 +26,13 @@ function createTask() {
 }
 
 function deleteTask() {
+    if(isset($_GET['id'])) {
+        $tasks = dbRead();
+        unset($tasks[$_GET['id']]);
+        dbRewrite($tasks);
+    }
 
+    header("location: index.php");
 }
 
 $tasks = dbRead();
