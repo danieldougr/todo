@@ -1,8 +1,10 @@
 <?php
 
+const DB_FILE = "db.txt";
+
 function dbRead(): array
 {
-    $file = fopen('db.txt', 'r');
+    $file = fopen(DB_FILE, 'r');
     $tasks = array();
 
     if($file) {
@@ -12,15 +14,25 @@ function dbRead(): array
                 $tasks[] = $line;
             }
         }
+        fclose($file);
     }
     
     return $tasks;
 }
 
-function dbInclude() {
+function dbInclude($task) {
+    $file = fopen(DB_FILE, 'a');
 
+    if($file) {
+        fwrite($file, "\n" .$task);
+
+        fclose($file);
+    }
 }
 
 function dbRewrite() {
 
 }
+
+
+dbInclude("Tarefa 4");
