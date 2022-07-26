@@ -30,9 +30,25 @@ function dbInclude($task) {
     }
 }
 
-function dbRewrite() {
+function dbRewrite(array $data) {
+    $file = fopen(DB_FILE, 'w');
 
+    if($file) {
+        $total_items = count($data);
+
+        if($total_items > 0) {
+            $i = 0;
+            foreach($data as $line) {
+                fwrite($file, $line);
+                
+                if($i < ($total_items - 1)){
+                    fwrite($file, "\n");    
+                }
+
+                $i++;
+            }
+        }
+
+        fclose($file);
+    }
 }
-
-
-dbInclude("Tarefa 4");
