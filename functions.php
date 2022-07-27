@@ -11,6 +11,9 @@ if(isset($_GET['action'])) {
         case 'delete':
              deleteTask();
             break;
+        case 'done':
+            toogleDone();
+        break;
     }
 }
 
@@ -35,6 +38,15 @@ function deleteTask() {
         dbRewrite($tasks);
     }
 
+    header("location: index.php");
+}
+
+function toogleDone() {
+    if(isset($_GET['id'])) {
+        $tasks = dbRead();
+        $tasks [$_GET['id']]->done = !$tasks [$_GET['id']]->done;
+        dbRewrite($tasks);
+    }
     header("location: index.php");
 }
 

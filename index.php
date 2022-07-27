@@ -36,53 +36,40 @@
             <table>
                 <tbody>
                     <?php foreach ($tasks as $id => $task) : ?>
-                        <tr>
-                            <td width="2.2rem">
-                                <a href="" class="link-not-done">
-                                    <span class="material-icons-outlined">check_box_outline_blank</span>
-                                </a>
-                            </td>
-                            <td class="td-not-done">
-                                <?php echo $task->text?>
-                            </td>
-                            <td width="2.2rem">
-                                <a href="index.php?action=delete&id=<?php echo $id?>" class="link-trash">
-                                    <span class="material-icons-outlined">delete</span>
-                                </a>
-                        </td>
-                    </tr>
+                        <?php if($task->done):?>
+                            <tr>
+                                <td width="2.2rem">
+                                    <a href="index.php?action=done&id=<?php echo$id?>" class="link-done">
+                                        <span class="material-icons-outlined">check_box</span>
+                                    </a>
+                                </td>
+                                <td class="td-done">
+                                    <?php echo $task->text?>
+                                </td>
+                                <td width="2.2rem">
+                                    <a href="index.php?action=delete&id=<?php echo $id?>" class="link-trash">
+                                        <span class="material-icons-outlined">delete</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php else :?>
+                            <tr>
+                                <td width="2.2rem">
+                                    <a href="index.php?action=done&id=<?php echo$id?>" class="link-not-done">
+                                        <span class="material-icons-outlined">check_box_outline_blank</span>
+                                    </a>
+                                </td>
+                                <td class="td-not-done">
+                                    <?php echo $task->text?>
+                                </td>
+                                <td width="2.2rem">
+                                    <a href="index.php?action=delete&id=<?php echo $id?>" class="link-trash">
+                                        <span class="material-icons-outlined">delete</span>
+                                    </a>
+                                </td>
+                            </tr>                               
+                        <?php endif ?>
                     <?php endforeach ?>
-                    <tr>
-                        <td width="2.2rem">
-                            <a href="" class="link-done">
-                                <span class="material-icons-outlined">check_box</span>
-                            </a>
-                        </td>
-                        <td class="td-done">
-                            Tarefa pronta
-                        </td>
-                        <td width="2.2rem">
-                            <a href="" class="link-trash">
-                                <span class="material-icons-outlined">delete</span>
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td width="2.2rem">
-                            <a href="" class="link-not-done">
-                                <span class="material-icons-outlined">check_box_outline_blank</span>
-                            </a>
-                        </td>
-                        <td class="td-not-done">
-                            Tarefa por fazer
-                        </td>
-                        <td width="2.2rem">
-                            <a href="" class="link-trash">
-                                <span class="material-icons-outlined">delete</span>
-                            </a>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
